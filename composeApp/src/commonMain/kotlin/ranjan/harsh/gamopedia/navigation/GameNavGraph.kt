@@ -10,11 +10,16 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import ranjan.harsh.game.ui.game.GameScreen
+import ranjan.harsh.game.ui.gameDetails.GameDetailsScreen
 
 object GameNavGraph: BaseNavGraph {
     sealed class Dest(val route: String){
         data object Root: Dest("/game-root")
         data object Game: Dest("/game")
+
+        data object Details : Dest("/game_details/{id}") {
+            fun getRoute(id: Int) = "/game_details/${id}"
+        }
     }
     override fun build(
         modifier: Modifier,
@@ -27,18 +32,6 @@ object GameNavGraph: BaseNavGraph {
         ){
             composable(
                 route = Dest.Game.route,
-                enterTransition = { 
-                    fadeIn(animationSpec = tween(300))
-                },
-                exitTransition = { 
-                    fadeOut(animationSpec = tween(300))
-                },
-                popEnterTransition = { 
-                    fadeIn(animationSpec = tween(300))
-                },
-                popExitTransition = { 
-                    fadeOut(animationSpec = tween(300))
-                }
             ){
                 GameScreen(
                     modifier = modifier.fillMaxSize(),
@@ -46,7 +39,22 @@ object GameNavGraph: BaseNavGraph {
                     onSearchClick = {
                         navController.navigate(SearchNavGraph.Dest.Search.route)
                     },
-                    onClick = {}
+                    onClick = {
+                        navController.navigate(Dest.Details.getRoute(it))
+                    }
+                )
+            }
+
+            composable(
+                route = Dest.Details.route,
+            ){
+                val id = it.arguments?.getString("id")
+                GameDetailsScreen(
+                    modifier = modifier.fillMaxSize(),
+                    id = id.toString(),
+                    onBackClick = {
+                        navController.popBackStack()
+                    }
                 )
             }
 

@@ -1,6 +1,9 @@
 package ranjan.harsh.gamopedia
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -14,6 +17,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -21,6 +25,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 import gamopedia.composeapp.generated.resources.Res
 import gamopedia.composeapp.generated.resources.compose_multiplatform
 import ranjan.harsh.gamopedia.navigation.GameNavGraph
+import ranjan.harsh.gamopedia.navigation.GameNavGraph.Dest
 import ranjan.harsh.gamopedia.navigation.SearchNavGraph
 
 @Composable
@@ -29,7 +34,22 @@ fun App() {
     MaterialTheme {
         val navHostController = rememberNavController()
 
-        NavHost(navHostController, startDestination = GameNavGraph.Dest.Root.route){
+        NavHost(
+            navHostController,
+            startDestination = GameNavGraph.Dest.Root.route,
+            enterTransition = {
+                fadeIn(animationSpec = tween(300))
+            },
+            exitTransition = {
+                fadeOut(animationSpec = tween(300))
+            },
+            popEnterTransition = {
+                fadeIn(animationSpec = tween(300))
+            },
+            popExitTransition = {
+                fadeOut(animationSpec = tween(300))
+            }
+        ) {
             listOf(
                 GameNavGraph,
                 SearchNavGraph

@@ -78,6 +78,8 @@ kotlin {
 
             implementation(libs.coil.ktor)
             implementation(libs.coil)
+
+            implementation("be.digitalia.compose.htmlconverter:htmlconverter:1.1.0")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

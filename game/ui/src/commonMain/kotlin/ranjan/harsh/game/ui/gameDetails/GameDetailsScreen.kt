@@ -33,14 +33,17 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import be.digitalia.compose.htmlconverter.htmlToAnnotatedString
 import coil3.compose.AsyncImage
 import org.koin.compose.viewmodel.koinViewModel
 
@@ -79,6 +82,7 @@ fun GameDetailsScreenContent(
     if (uiState.isLoading) {
         Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             CircularProgressIndicator()
+            Text(text = "Loading...")
         }
     }
 
@@ -107,13 +111,14 @@ fun GameDetailsScreenContent(
                         modifier = Modifier.padding(horizontal = 12.dp, vertical = 12.dp)
                             .fillMaxWidth(),
                         text = data.name,
-                        style = MaterialTheme.typography.headlineMedium
+                        style = MaterialTheme.typography.headlineLarge
                     )
                 }
 
                 item {
+                    val htmlText = remember(data.description) { htmlToAnnotatedString(data.description) }
                     Text(
-                        text = data.description, style = MaterialTheme.typography.bodyMedium,
+                        text = htmlText, style = MaterialTheme.typography.bodyMedium,
                         modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
                             .fillMaxWidth()
                     )
@@ -151,7 +156,7 @@ fun GameDetailsScreenContent(
                                         Text(
                                             modifier = Modifier.padding(vertical = 8.dp),
                                             text = it.name,
-                                            style = MaterialTheme.typography.headlineMedium
+                                            style = MaterialTheme.typography.bodyLarge
                                         )
 
                                     }
@@ -204,7 +209,7 @@ fun GameDetailsScreenContent(
                             Spacer(Modifier.height(8.dp))
                             Text(
                                 text = "Gamecount: " + it.gameCount,
-                                style = MaterialTheme.typography.displayMedium
+                                style = MaterialTheme.typography.bodySmall
                             )
 
                         }
@@ -248,7 +253,7 @@ fun GameDetailsScreenContent(
                                 )
                                 Spacer(Modifier.width(4.dp))
                                 Text(
-                                    text = it.name, style = MaterialTheme.typography.displayMedium,
+                                    text = it.name, style = MaterialTheme.typography.bodySmall,
                                     modifier = Modifier.padding(end = 8.dp)
                                 )
                             }
@@ -260,7 +265,7 @@ fun GameDetailsScreenContent(
 
                 item {
                     Text(
-                        text = "Developers", style = MaterialTheme.typography.headlineSmall,
+                        text = "Developers", style = MaterialTheme.typography.headlineMedium,
                         modifier = Modifier.padding(horizontal = 12.dp)
                             .padding(top = 24.dp, bottom = 12.dp)
                     )
@@ -293,7 +298,7 @@ fun GameDetailsScreenContent(
                             Spacer(Modifier.height(8.dp))
                             Text(
                                 text = "Gamecount: " + it.gameCount,
-                                style = MaterialTheme.typography.displayMedium
+                                style = MaterialTheme.typography.bodyLarge
                             )
                         }
                     }
