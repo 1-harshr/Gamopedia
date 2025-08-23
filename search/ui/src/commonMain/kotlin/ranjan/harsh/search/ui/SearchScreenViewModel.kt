@@ -5,15 +5,10 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.debounce
-import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
 import ranjan.harsh.common.domain.models.Game
 import ranjan.harsh.search.domain.useCases.SearchDataUseCase
 
@@ -46,7 +41,7 @@ class SearchScreenViewModel(
                 }
             }.onFailure { error ->
                 _state.update {
-                    SearchScreen.UiState(error = error.message ?: "Something went wrong")
+                    SearchScreen.UiState(error = "No Result Found")
                 }
             }
         }.launchIn(viewModelScope)

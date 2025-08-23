@@ -16,6 +16,9 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Backspace
+import androidx.compose.material.icons.filled.Cancel
+import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -32,6 +35,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -43,7 +47,7 @@ fun SearchScreen(
     modifier: Modifier = Modifier,
     onClick: (Int) -> Unit,
     onBackClick: () -> Unit
-){
+) {
     val viewModel = koinViewModel<SearchScreenViewModel>()
 
     val uiState by viewModel.state.collectAsStateWithLifecycle()
@@ -78,20 +82,37 @@ fun SearchScreenContent(
 ) {
 
     Scaffold(
-        modifier = modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize().padding(top = 20.dp),
         topBar = {
-            Row(modifier = Modifier.padding(4.dp).fillMaxWidth()) {
-                IconButton(onClick = onBackClick) {
-                    Icon(imageVector = Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
-                }
-                Spacer(modifier = Modifier.width(8.dp))
+            Row(modifier = Modifier.padding(12.dp).fillMaxWidth()) {
+
                 TextField(
-                    value = query, onValueChange = onQueryChange,
+                    leadingIcon = {
+                        IconButton(onClick = onBackClick) {
+                            Icon(
+                                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                                contentDescription = null
+                            )
+                        }
+                    },
+                    trailingIcon = {
+                        IconButton(onClick = {
+                            onQueryChange("")
+                        }) {
+                            Icon(
+                                imageVector = Icons.Default.Cancel,
+                                contentDescription = null
+                            )
+                        }
+                    },
+                    shape = RoundedCornerShape(12.dp),
+                    value = query,
+                    onValueChange = onQueryChange,
                     singleLine = true,
                     modifier = Modifier.fillMaxWidth(),
                     colors = TextFieldDefaults.colors(
-                        unfocusedIndicatorColor = Color.Transparent,
-                        focusedIndicatorColor = Color.Transparent
+                        unfocusedIndicatorColor = Color.Gray,
+                        focusedIndicatorColor = Color.Blue,
                     ), placeholder = {
                         Text("Search here...")
                     }
@@ -113,7 +134,7 @@ fun SearchScreenContent(
         }
 
         uiState.games?.let { data ->
-            LazyVerticalGrid(columns = GridCells.Fixed(2), modifier = Modifier.fillMaxSize()) {
+            LazyVerticalGrid(columns = GridCells.Fixed(2), modifier = Modifier.fillMaxSize().padding(top= 80.dp)) {
                 items(data) { item ->
                     AsyncImage(
                         model = item.imageUrl, contentDescription = null,
