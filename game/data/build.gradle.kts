@@ -66,6 +66,9 @@ kotlin {
             implementation(projects.common.data)
             implementation(projects.common.ui)
 
+            implementation(projects.coreNetwork)
+
+
             implementation(libs.koin.core)
 
             implementation(compose.runtime)

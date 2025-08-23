@@ -69,7 +69,10 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtimeCompose)
 
             implementation(projects.coreNetwork)
+            
             implementation(projects.search.domain)
+
+            implementation(projects.common.domain)
 
             implementation(libs.koin.core)
 

@@ -72,6 +72,7 @@ kotlin {
             implementation(libs.koin.core)
 
             implementation(projects.common.domain)
+            implementation(projects.coreNetwork)
 
 
             

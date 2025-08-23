@@ -1,6 +1,7 @@
 package ranjan.harsh.common.data.mappers
 
 import ranjan.harsh.common.domain.models.Game
+import ranjan.harsh.coreNetwork.models.game.Result
 
 fun List<Result>.toDomainListOfGames(): List<Game> = map{
     Game(
