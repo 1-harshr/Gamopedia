@@ -33,3 +33,8 @@ plugins {
 }
 
 include(":composeApp")
+include(":core-database")
+include(":core-network")
+include(":search")
+include(":game")
+include(":favorite")
