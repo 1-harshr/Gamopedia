@@ -19,7 +19,7 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -30,9 +30,9 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     jvm()
-    
+
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
         outputModuleName.set("composeApp")
@@ -52,7 +52,7 @@ kotlin {
         }
         binaries.executable()
     }
-    
+
     sourceSets {
         androidMain.dependencies {
             implementation(compose.preview)
@@ -79,12 +79,12 @@ kotlin {
 }
 
 android {
-    namespace = "ranjan.harsh.core-network"
+    namespace = "ranjan.harsh.favorite.data"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
-        testOptions.targetSdk = libs.versions.android.targetSdk.get().toInt()
+        targetSdk = libs.versions.android.targetSdk.get().toInt()
     }
     packaging {
         resources {
@@ -110,7 +110,7 @@ compose.desktop {
     application {
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "ranjan.harsh.core-network"
+            packageName = "ranjan.harsh.gamopedia.data"
             packageVersion = "1.0.0"
         }
     }

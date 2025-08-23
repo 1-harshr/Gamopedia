@@ -79,12 +79,12 @@ kotlin {
 }
 
 android {
-    namespace = "ranjan.harsh.core-network"
+    namespace = "ranjan.harsh.game.data"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
-        testOptions.targetSdk = libs.versions.android.targetSdk.get().toInt()
+        targetSdk = libs.versions.android.targetSdk.get().toInt()
     }
     packaging {
         resources {
@@ -108,9 +108,10 @@ dependencies {
 
 compose.desktop {
     application {
+
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "ranjan.harsh.core-network"
+            packageName = "ranjan.harsh.game.data"
             packageVersion = "1.0.0"
         }
     }

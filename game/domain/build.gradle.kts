@@ -79,7 +79,7 @@ kotlin {
 }
 
 android {
-    namespace = "ranjan.harsh.game"
+    namespace = "ranjan.harsh.game.domain"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
@@ -111,7 +111,7 @@ compose.desktop {
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "ranjan.harsh.game"
+            packageName = "ranjan.harsh.game.domain"
             packageVersion = "1.0.0"
         }
     }

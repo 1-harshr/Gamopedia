@@ -19,7 +19,7 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -30,9 +30,9 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     jvm()
-    
+
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
         outputModuleName.set("composeApp")
@@ -52,7 +52,7 @@ kotlin {
         }
         binaries.executable()
     }
-    
+
     sourceSets {
         androidMain.dependencies {
             implementation(compose.preview)
@@ -79,7 +79,7 @@ kotlin {
 }
 
 android {
-    namespace = "ranjan.harsh.favorite"
+    namespace = "ranjan.harsh.favorite.ui"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
@@ -110,7 +110,7 @@ compose.desktop {
     application {
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "ranjan.harsh.gamopedia"
+            packageName = "ranjan.harsh.gamopedia.ui"
             packageVersion = "1.0.0"
         }
     }

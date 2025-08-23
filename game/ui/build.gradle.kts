@@ -79,7 +79,7 @@ kotlin {
 }
 
 android {
-    namespace = "ranjan.harsh.search"
+    namespace = "ranjan.harsh.game.ui"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
@@ -108,9 +108,10 @@ dependencies {
 
 compose.desktop {
     application {
+
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "ranjan.harsh.search"
+            packageName = "ranjan.harsh.game.ui"
             packageVersion = "1.0.0"
         }
     }
