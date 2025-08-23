@@ -1,4 +1,4 @@
-package ranjan.harsh.coreNetwork.game
+package ranjan.harsh.coreNetwork.models.game
 
 import kotlinx.serialization.Serializable
 
