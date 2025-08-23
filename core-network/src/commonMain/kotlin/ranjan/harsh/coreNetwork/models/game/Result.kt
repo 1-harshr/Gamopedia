@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Result(
-    val backgroundImage: String,
+    val background_image: String,
     val id: Int,
     val name: String,
 )

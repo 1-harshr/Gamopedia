@@ -79,7 +79,7 @@ kotlin {
 }
 
 android {
-    namespace = "ranjan.harsh.core-database"
+    namespace = "ranjan.harsh.coreDatabase"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
@@ -111,7 +111,7 @@ compose.desktop {
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "ranjan.harsh.core-database"
+            packageName = "ranjan.harsh.coreDatabase"
             packageVersion = "1.0.0"
         }
     }

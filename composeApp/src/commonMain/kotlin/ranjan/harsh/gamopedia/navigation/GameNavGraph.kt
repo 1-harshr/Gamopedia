@@ -19,10 +19,10 @@ object GameNavGraph: BaseNavGraph {
         navGraphBuilder: NavGraphBuilder
     ) {
         navGraphBuilder.navigation(
-            startDestination = Dest.Root.route,
-            route = Dest.Game.route
+            startDestination = Dest.Game.route,
+            route = Dest.Root.route
         ){
-            composable(route = Dest.Root.route){
+            composable(route = Dest.Game.route){
                 GameScreen(
                     modifier = modifier.fillMaxSize(),
                     onFavoriteClick = {},

@@ -98,7 +98,7 @@ kotlin {
 }
 
 android {
-    namespace = "ranjan.harsh.core-network"
+    namespace = "ranjan.harsh.coreNetwork"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
@@ -129,7 +129,7 @@ compose.desktop {
     application {
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "ranjan.harsh.core-network"
+            packageName = "ranjan.harsh.coreNetwork"
             packageVersion = "1.0.0"
         }
     }
