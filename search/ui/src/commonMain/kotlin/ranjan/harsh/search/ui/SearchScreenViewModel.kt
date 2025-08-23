@@ -23,17 +23,6 @@ class SearchScreenViewModel(
 ): ViewModel() {
 
 
-    init {
-        viewModelScope.launch {
-            _query.filter { it.isNotBlank() }
-                .distinctUntilChanged()
-                .debounce { 500 }
-                .collectLatest { q ->
-                    search(q)
-                }
-        }
-    }
-
     private val _state = MutableStateFlow(SearchScreen.UiState())
     val state = _state.asStateFlow()
 
@@ -41,22 +30,29 @@ class SearchScreenViewModel(
 
     fun onQueryChange(query: String){
         _query.update { query }
+        search(query)
     }
 
     private fun search(q: String) = searchDataUseCase(_query.value)
         .onStart {
-            _state.value = _state.value.copy(isLoading = true)
+            _state.update {
+                SearchScreen.UiState(isLoading = true)
+            }
         }
         .onEach { result ->
             result.onSuccess { games ->
-                _state.value = _state.value.copy(games = games)
-            }.onFailure {
-                _state.value = _state.value.copy(error = it.message.toString())
+                _state.update {
+                    SearchScreen.UiState(games = games)
+                }
+            }.onFailure { error ->
+                _state.update {
+                    SearchScreen.UiState(error = error.message ?: "Something went wrong")
+                }
             }
         }.launchIn(viewModelScope)
 }
 
-data object SearchScreen{
+object SearchScreen{
 
     data class UiState(
         val games: List<Game>? = null,

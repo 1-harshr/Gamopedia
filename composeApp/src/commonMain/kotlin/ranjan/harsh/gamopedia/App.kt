@@ -21,6 +21,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 import gamopedia.composeapp.generated.resources.Res
 import gamopedia.composeapp.generated.resources.compose_multiplatform
 import ranjan.harsh.gamopedia.navigation.GameNavGraph
+import ranjan.harsh.gamopedia.navigation.SearchNavGraph
 
 @Composable
 @Preview
@@ -30,7 +31,8 @@ fun App() {
 
         NavHost(navHostController, startDestination = GameNavGraph.Dest.Root.route){
             listOf(
-                GameNavGraph
+                GameNavGraph,
+                SearchNavGraph
             ).forEach {
                 it.build(
                     modifier = Modifier.fillMaxSize(),
