@@ -80,6 +80,8 @@ kotlin {
 
             implementation(libs.koin.core)
 
+            implementation(projects.coreNetwork)
+
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
