@@ -67,6 +67,28 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
+
+            implementation(projects.game.domain)
+            implementation(projects.game.data)
+            implementation(projects.game.ui)
+
+            implementation(projects.search.domain)
+            implementation(projects.search.data)
+            implementation(projects.search.ui)
+
+            implementation(projects.favorite.domain)
+            implementation(projects.favorite.data)
+            implementation(projects.favorite.ui)
+
+            implementation(libs.navigation.compose)
+
+            implementation(projects.coreNetwork)
+
+            implementation(projects.coreDatabase)
+
+
+
+
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
