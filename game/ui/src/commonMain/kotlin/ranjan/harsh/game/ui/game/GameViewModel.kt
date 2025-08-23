@@ -42,7 +42,7 @@ class GameViewModel(
 object GameScreen {
     data class UiState(
         val isLoading: Boolean = false,
-        val error: String? = null,
-        val data : List<Game> = emptyList()
+        val error: String = "",
+        val data : List<Game>? = emptyList()
     )
 }
