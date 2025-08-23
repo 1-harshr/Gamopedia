@@ -40,21 +40,41 @@ import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun SearchScreen(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onClick: (Int) -> Unit,
+    onBackClick: () -> Unit
 ){
     val viewModel = koinViewModel<SearchScreenViewModel>()
 
     val uiState by viewModel.state.collectAsStateWithLifecycle()
     var query by rememberSaveable { mutableStateOf("") }
 
+    SearchScreenContent(
+        modifier = modifier,
+        uiState = uiState,
+        query = query,
+        onQueryChange = {
+            query = it
+            viewModel.onQueryChange(it)
+        },
+        onClick = {
+            onClick(it)
+        },
+        onBackClick = {
+            onBackClick()
+        }
+    )
+
 }
 
 @Composable
 fun SearchScreenContent(
-    modifier: Modifier = Modifier, uiState: SearchScreen.UiState,
-    query: String, onQueryChange: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    uiState: SearchScreen.UiState,
+    query: String,
+    onQueryChange: (String) -> Unit,
     onClick: (Int) -> Unit,
-    onBackClick:()-> Unit
+    onBackClick: () -> Unit
 ) {
 
     Scaffold(
