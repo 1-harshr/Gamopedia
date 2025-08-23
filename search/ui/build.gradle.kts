@@ -67,6 +67,8 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
+            implementation(compose.materialIconsExtended)
+
 
             implementation(projects.search.domain)
 
@@ -74,6 +76,10 @@ kotlin {
             implementation(projects.common.data)
 
             implementation(libs.koin.core)
+            implementation(libs.koin.compose.viewmodel)
+
+            implementation(libs.coil)
+            implementation(libs.coil.ktor)
 
 
 
