@@ -57,7 +57,9 @@ object SearchNavGraph: BaseNavGraph {
 
                 SearchScreen(
                     modifier = modifier.fillMaxSize(),
-                    onClick = {},
+                    onClick = {
+                        navController.navigate(GameNavGraph.Dest.Details.getRoute(it))
+                    },
                     onBackClick = {
                         navController.popBackStack()
                     }

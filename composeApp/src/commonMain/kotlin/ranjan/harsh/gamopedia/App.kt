@@ -4,6 +4,8 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -38,16 +40,28 @@ fun App() {
             navHostController,
             startDestination = GameNavGraph.Dest.Root.route,
             enterTransition = {
-                fadeIn(animationSpec = tween(300))
+                slideInHorizontally(
+                    initialOffsetX = { it },
+                    animationSpec = tween(300)
+                )
             },
             exitTransition = {
-                fadeOut(animationSpec = tween(300))
+                slideOutHorizontally(
+                    targetOffsetX = { -it },
+                    animationSpec = tween(300)
+                )
             },
             popEnterTransition = {
-                fadeIn(animationSpec = tween(300))
+                slideInHorizontally(
+                    initialOffsetX = { -it },
+                    animationSpec = tween(300)
+                )
             },
             popExitTransition = {
-                fadeOut(animationSpec = tween(300))
+                slideOutHorizontally(
+                    targetOffsetX = { it },
+                    animationSpec = tween(300)
+                )
             }
         ) {
             listOf(
