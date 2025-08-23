@@ -36,4 +36,17 @@ class ApiService(
         }
 
     }
+
+    suspend fun getGameDetails(id: Int){
+        try{
+            val response = httpClient.get("api/games/$id"){
+                url{
+                    parameter("key", "1abb1867f52548a4aa9f54dd4946af2f")
+                }
+            }.body<GameResponse>()
+            Result.success(response)
+        } catch (e: Exception){
+            Result.failure(e)
+        }
+    }
 }
