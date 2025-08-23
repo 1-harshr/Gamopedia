@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
-import ranjan.harsh.game.domain.model.Game
+import ranjan.harsh.common.domain.models.Game
 import ranjan.harsh.game.domain.useCases.GetGameUseCase
 
 class GameViewModel(

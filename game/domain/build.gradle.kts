@@ -69,6 +69,8 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtimeCompose)
 
             implementation(libs.koin.core)
+
+            implementation(projects.common.domain)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

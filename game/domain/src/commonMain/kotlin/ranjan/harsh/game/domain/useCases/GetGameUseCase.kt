@@ -4,7 +4,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import ranjan.harsh.game.domain.model.Game
+import ranjan.harsh.common.domain.models.Game
 import ranjan.harsh.game.domain.repository.GameRepository
 
 class GetGameUseCase(

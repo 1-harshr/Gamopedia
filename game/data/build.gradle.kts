@@ -61,6 +61,7 @@ kotlin {
         commonMain.dependencies {
             implementation(projects.coreNetwork)
             implementation(projects.game.domain)
+            implementation(projects.common.domain)
 
             implementation(libs.koin.core)
 

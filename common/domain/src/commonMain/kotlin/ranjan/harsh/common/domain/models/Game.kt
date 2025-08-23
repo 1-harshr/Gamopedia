@@ -1,4 +1,4 @@
-package ranjan.harsh.game.domain.model
+package ranjan.harsh.common.domain.models
 
 data class Game(
     val id: Int,

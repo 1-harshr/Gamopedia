@@ -72,6 +72,8 @@ kotlin {
 
             implementation(projects.game.domain)
 
+            implementation(projects.common.domain)
+
             implementation(libs.koin.compose.viewmodel)
 
             implementation(libs.coil.ktor)
