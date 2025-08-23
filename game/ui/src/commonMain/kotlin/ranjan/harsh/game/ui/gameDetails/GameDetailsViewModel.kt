@@ -41,7 +41,7 @@ object GameDetailsScreenState{
     data class UiState(
         val isLoading: Boolean = false,
         val gameDetails: GameDetails? = null,
-        val error: String? = null
+        val error: String = ""
     )
 
 }
