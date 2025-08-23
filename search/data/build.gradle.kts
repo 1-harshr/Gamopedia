@@ -67,6 +67,12 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
+
+            implementation(projects.coreNetwork)
+            implementation(projects.search.domain)
+
+            implementation(libs.koin.core)
+            
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
