@@ -2,6 +2,7 @@ package ranjan.harsh.game.ui.gameDetails
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
@@ -25,6 +26,8 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CardDefaults.cardElevation
 import androidx.compose.material3.CardElevation
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
@@ -135,8 +138,13 @@ fun GameDetailsScreenContent(
                         LazyRow(modifier = Modifier.fillMaxWidth()) {
                             items(data.platforms) {
                                 Card(
-                                    modifier = Modifier.padding(12.dp).wrapContentSize(),
+                                    modifier = Modifier.padding(12.dp).wrapContentSize().clickable{
+
+                                    },
                                     shape = RoundedCornerShape(12.dp),
+                                    elevation = cardElevation(
+                                        defaultElevation = 12.dp
+                                    )
                                 ) {
                                     Column(
                                         modifier = Modifier.width(150.dp),
@@ -240,7 +248,8 @@ fun GameDetailsScreenContent(
                                     color = Color.LightGray,
                                     shape = RoundedCornerShape(200.dp)
                                 )
-                                    .clip(RoundedCornerShape(200.dp)),
+                                    .clip(RoundedCornerShape(200.dp))
+                                    .clickable{},
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
                                 AsyncImage(
