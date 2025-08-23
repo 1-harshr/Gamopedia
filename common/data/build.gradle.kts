@@ -70,6 +70,10 @@ kotlin {
 
 
             implementation(libs.koin.core)
+
+            implementation(projects.common.domain)
+
+
             
         }
         commonTest.dependencies {

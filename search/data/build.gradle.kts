@@ -72,7 +72,8 @@ kotlin {
             implementation(projects.search.domain)
 
             implementation(libs.koin.core)
-            
+
+
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
