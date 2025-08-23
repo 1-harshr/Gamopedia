@@ -97,7 +97,7 @@ fun GameScreenContent(
         }
 
         uiState.data?.let { data ->
-            LazyColumn(modifier = modifier.fillMaxSize()) {
+            LazyColumn(modifier = modifier.padding(top=100.dp).fillMaxSize()) {
                 items(data) {
                     Card(
                         modifier = Modifier.padding(12.dp).fillMaxWidth().height(350.dp)
