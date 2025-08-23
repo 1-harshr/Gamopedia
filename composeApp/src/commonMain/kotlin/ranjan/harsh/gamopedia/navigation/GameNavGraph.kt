@@ -1,5 +1,8 @@
 package ranjan.harsh.gamopedia.navigation
 
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraphBuilder
@@ -22,7 +25,21 @@ object GameNavGraph: BaseNavGraph {
             startDestination = Dest.Game.route,
             route = Dest.Root.route
         ){
-            composable(route = Dest.Game.route){
+            composable(
+                route = Dest.Game.route,
+                enterTransition = { 
+                    fadeIn(animationSpec = tween(300))
+                },
+                exitTransition = { 
+                    fadeOut(animationSpec = tween(300))
+                },
+                popEnterTransition = { 
+                    fadeIn(animationSpec = tween(300))
+                },
+                popExitTransition = { 
+                    fadeOut(animationSpec = tween(300))
+                }
+            ){
                 GameScreen(
                     modifier = modifier.fillMaxSize(),
                     onFavoriteClick = {},

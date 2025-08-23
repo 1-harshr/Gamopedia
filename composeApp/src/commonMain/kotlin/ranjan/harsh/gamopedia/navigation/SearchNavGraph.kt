@@ -1,5 +1,8 @@
 package ranjan.harsh.gamopedia.navigation
 
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraphBuilder
@@ -24,14 +27,41 @@ object SearchNavGraph: BaseNavGraph {
             startDestination = Dest.Search.route
         ) {
 
-            composable(route = Dest.Search.route) {
+            composable(
+                route = Dest.Search.route,
+                enterTransition = { 
+                    slideInHorizontally(
+                        initialOffsetX = { it },
+                        animationSpec = tween(300)
+                    )
+                },
+                exitTransition = { 
+                    slideOutHorizontally(
+                        targetOffsetX = { -it },
+                        animationSpec = tween(300)
+                    )
+                },
+                popEnterTransition = { 
+                    slideInHorizontally(
+                        initialOffsetX = { -it },
+                        animationSpec = tween(300)
+                    )
+                },
+                popExitTransition = { 
+                    slideOutHorizontally(
+                        targetOffsetX = { it },
+                        animationSpec = tween(300)
+                    )
+                }
+            ) {
 
                 SearchScreen(
-                    modifier = modifier.fillMaxSize(), onClick = {
-
-                }, onBackClick = {
-
-                })
+                    modifier = modifier.fillMaxSize(),
+                    onClick = {},
+                    onBackClick = {
+                        navController.popBackStack()
+                    }
+                )
             }
 
         }
