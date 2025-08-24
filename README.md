@@ -2,6 +2,22 @@
 
 A comprehensive video game database and encyclopedia app built with Kotlin Multiplatform and Compose Multiplatform.
 
+## Screenshots
+
+<div align="center">
+  <img src="media/screenshots/home-screen.png" width="250" alt="Home Screen"/>
+  <img src="media/screenshots/game-details.png" width="250" alt="Game Details"/>
+  <img src="media/screenshots/search-results.png" width="250" alt="Search Results"/>
+</div>
+
+## Demo Videos
+
+### Desktop Application Demo
+https://github.com/user-attachments/assets/jvm_Desktop.mov
+
+### Game Recommendations Feature
+https://github.com/user-attachments/assets/gamerec.mp4
+
 ## What is Gamopedia?
 
 Gamopedia is a cross-platform application that provides users with access to a vast database of video games. The app allows users to discover, search, and explore detailed information about thousands of games across different platforms and genres.
@@ -30,6 +46,12 @@ Gamopedia uses the [RAWG Video Games Database API](https://rawg.io/apidocs) to p
 - **iOS**: Native iOS app  
 - **Desktop**: Windows, macOS, and Linux applications
 - **Web**: Browser-based web application (WebAssembly)
+
+### Platform Screenshots
+
+| Android | iOS | Desktop | Web |
+|---------|-----|---------|-----|
+| <img src="media/screenshots/android-app.png" width="200" alt="Android"/> | <img src="media/screenshots/ios-app.png" width="200" alt="iOS"/> | <img src="media/screenshots/desktop-app.png" width="200" alt="Desktop"/> | <img src="media/screenshots/web-app.png" width="200" alt="Web"/> |
 
 ## Technologies
 
