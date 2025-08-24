@@ -13,10 +13,17 @@ A comprehensive video game database and encyclopedia app built with Kotlin Multi
 ## Demo Videos
 
 ### Desktop Application Demo
-https://github.com/user-attachments/assets/jvm_Desktop.mov
+<video width="600" controls>
+  <source src="media/videos/jvm_Desktop.mov" type="video/quicktime">
+  <source src="media/videos/jvm_Desktop.mov" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ### Game Recommendations Feature
-https://github.com/user-attachments/assets/gamerec.mp4
+<video width="600" controls>
+  <source src="media/videos/gamerec.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ## What is Gamopedia?
 
