@@ -21,6 +21,7 @@ A comprehensive video game database and encyclopedia app built with Kotlin Multi
 </video>
 
 ### Game Recommendations Feature
+![video](media/videos/gamerec.mp4)
 <video width="600" controls>
   <source src="media/videos/gamerec.mp4" type="video/mp4">
   Your browser does not support the video tag.
